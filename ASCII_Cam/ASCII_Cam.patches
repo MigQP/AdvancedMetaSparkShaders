@@ -1,0 +1,136 @@
+{
+  "id": "91710105ed8c65c2b4d34abac7d526c34e655",
+  "revision": "93388105ed8c65c2b4d34abac7d526c34e655",
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 168
+  },
+  "creatorIdentifier": "com.facebook.arstudio.skylight",
+  "creatorPlatform": "windows",
+  "creatorFileVersion": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 168
+  },
+  "sectionContent": {
+    "modelName": "patch_graphs_model",
+    "identifier": "patch_graphs_model:91738-105ed8c6-5c2b-4d34-abac-7d526c34e655"
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:92539-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "fromPatch": "shader_code_patch_model:92173-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:92291-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "toPort": "20"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:92605-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "fromPatch": "producer_patch_model:92583-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:92603-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "toPort": "512"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:92615-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "fromPatch": "producer_patch_model:92413-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:92603-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "toPort": "256"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:93387-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "fromPatch": "producer_patch_model:92413-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:92173-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "toPort": "256"
+      }
+    ],
+    "graphs": [
+      {
+        "modelName": "patch_graph",
+        "identifier": "patch_graph:91802-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "subpatches": [
+          "consumer_patch_model:92291-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+          "producer_patch_model:92413-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+          "producer_patch_model:92583-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+          "shader_code_patch_model:92173-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+          "shader_code_patch_model:92603-105ed8c6-5c2b-4d34-abac-7d526c34e655"
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "modelName": "consumer_patch_model",
+        "name": "Device",
+        "identifier": "consumer_patch_model:92291-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "object": "device:91786-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "objectProperty": "render_pass_final_output",
+        "position": [
+          460.07499999999993,
+          323.5499999999999
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "cameraTexture0",
+        "identifier": "producer_patch_model:92413-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "object": "cameraTexture:92411-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "position": [
+          -196,
+          -52
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "oYf8sTy",
+        "identifier": "producer_patch_model:92583-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "object": "texture:92573-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "position": [
+          -52,
+          140
+        ]
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "ASCII - main",
+        "identifier": "shader_code_patch_model:92173-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "object": "shader_code_asset_model:92035-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "position": [
+          285,
+          226.25
+        ],
+        "shaderInterface": "shader_interface_model:92037-105ed8c6-5c2b-4d34-abac-7d526c34e655"
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "colorLUTShader - main",
+        "identifier": "shader_code_patch_model:92603-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "object": "shader_code_asset_model:92585-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "position": [
+          116,
+          -4
+        ],
+        "shaderInterface": "shader_interface_model:92587-105ed8c6-5c2b-4d34-abac-7d526c34e655",
+        "values": [
+          {
+            "port": "768",
+            "value": {
+              "t": "vec2",
+              "v": [
+                8,
+                8
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

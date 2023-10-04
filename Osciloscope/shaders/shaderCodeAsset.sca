@@ -1,0 +1,27 @@
+#define S(v) smoothstep(1.0, 0.0, abs(v) / fwidth(v))
+
+using namespace std;
+
+void main(in std::Texture2d myTex,  out vec4 Color) {
+    vec2 fragCoord = fragment(floor(std::getRenderTargetSize() * std::getVertexTexCoord()));
+    vec2 uv = fragCoord.xy / getRenderTargetSize().xy;
+    
+    vec2 R = getRenderTargetSize().xy;
+    vec2 U = fragCoord.xy / R;
+    vec2 G = R / 20.0;
+    vec2 I = round(U * G) / G;
+    vec2 V = 2.0 * U - 1.0;
+    V *= V;
+  
+    G = G * (U - I) + vec2(0.5, 0.5);
+
+    Color = vec4(0.0, 0.0, 0.0, 0.0);
+
+    vec4 P = myTex.sample(vec2(U.x, I.y)) * (1.0 + vec4(0.07, 0.03, 0.0, 0.0) + vec4(0.6, 0.2, 0.2, 0.0) * vec4(V.x, V.y, 0.0, 0.0) + vec4(0.18, 0.18, 0.18, 0.0) * vec4(V.y, 0.0, 0.0, 0.0));
+    Color = mix(Color, vec4(1.0), S(G.y - length(P.rgb) / sqrt(3.0)));
+  
+    P = myTex.sample(vec2(U.x, I.y)) * (1.0 + vec4(0.07, 0.03, 0.0, 0.0) + vec4(0.6, 0.2, 0.2, 0.0) * vec4(V.x, V.y, 0.0, 0.0) + vec4(0.18, 0.18, 0.18, 0.0) * vec4(V.y, 0.0, 0.0, 0.0));
+    Color = mix(Color, vec4(1.0), S(G.x - length(P.rgb) / sqrt(3.0)));
+    
+    Color = sqrt(Color);
+}

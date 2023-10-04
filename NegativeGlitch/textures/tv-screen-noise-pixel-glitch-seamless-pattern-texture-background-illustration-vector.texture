@@ -1,0 +1,36 @@
+{
+  "modelName": "texture",
+  "name": "tv-screen-noise-pixel-glitch-seamless-pattern-texture-background-illustration-vector",
+  "identifier": "texture:98855-21279252-a5ce-46b3-94ba-06745ef305a0",
+  "alphaPremultiplicationMode": "should_premultiply",
+  "assetDataHash": "51e22778554d8b11e4d270298f6676f3",
+  "assetLocator": "textures/tv-screen-noise-pixel-glitch-seamless-pattern-texture-background-illustration-vector.jpg",
+  "colorEncoding": "linear",
+  "compressionQuality": "high",
+  "coordMapping": "none",
+  "excludeDuringExport": false,
+  "excludeFromPackage": false,
+  "filter": "bilinear",
+  "hasOfflineMipmaps": false,
+  "height": 980,
+  "importIssues": {},
+  "isExternalAsset": true,
+  "smartTextureTargetSizeLimit": "largest",
+  "targetSize": "largest",
+  "uWrapMode": "clamp",
+  "vWrapMode": "clamp",
+  "width": 980,
+  "children": [
+    {
+      "modelName": "data_texture_metadata_model",
+      "name": "data_texture_metadata_model0",
+      "assetDataHash": "51e22778554d8b11e4d270298f6676f3",
+      "colorCount": 245,
+      "detectedAlphaChannel": "no_alpha",
+      "detectedOriginalFormat": "jpeg",
+      "entropyOfDistribution": 5.0699511474977905,
+      "pixelsHigh": 980,
+      "pixelsWide": 980
+    }
+  ]
+}

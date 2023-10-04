@@ -1,0 +1,138 @@
+precision highp float;
+using namespace std;
+
+// Define a function to rotate a 3D vector around the Z-axis
+vec3 rotateVector(vec3 vector, float angle) {
+    float cosAngle = cos(angle);
+    float sinAngle = sin(angle);
+
+    mat3 rotationMatrix = mat3(
+        cosAngle, -sinAngle, 0.0,
+        sinAngle, cosAngle, 0.0,
+        1.0, 0.0, 0.0
+    );
+
+    return rotationMatrix * vector;
+}
+
+// Function to shift hue in HSL color space
+vec3 hueShift(vec3 color, float shift) {
+    // Convert RGB to HSL
+    float maxVal = max(max(color.r, color.g), color.b);
+    float minVal = min(min(color.r, color.g), color.b);
+
+    float lightness = (maxVal + minVal) / 2.0;
+    float saturation = 0.0;
+
+    if (maxVal != minVal) {
+        saturation = (lightness < 0.5) ? (maxVal - minVal) / (maxVal + minVal) : (maxVal - minVal) / (2.0 - maxVal - minVal);
+    }
+
+    float hue;
+
+    if (maxVal == color.r) {
+        hue = (color.g - color.b) / (maxVal - minVal);
+    } else if (maxVal == color.g) {
+        hue = 2.0 + (color.b - color.r) / (maxVal - minVal);
+    } else {
+        hue = 4.0 + (color.r - color.g) / (maxVal - minVal);
+    }
+
+    hue = mod(hue + shift, 6.0); // Shift the hue within [0, 6]
+    if (hue < 0.0) {
+        hue += 6.0;
+    }
+
+    // Convert back to RGB
+    float c = (1.0 - abs(2.0 * lightness - 1.0)) * saturation;
+    float x = c * (1.0 - abs(mod(hue, 2.0) - 1.0));
+    float m = lightness - c / 2.0;
+
+    vec3 shiftedColor;
+    if (hue < 1.0) {
+        shiftedColor = vec3(c, x, 0.0);
+    } else if (hue < 2.0) {
+        shiftedColor = vec3(x, c, 0.0);
+    } else if (hue < 3.0) {
+        shiftedColor = vec3(0.0, c, x);
+    } else if (hue < 4.0) {
+        shiftedColor = vec3(0.0, x, c);
+    } else if (hue < 5.0) {
+        shiftedColor = vec3(x, 0.0, c);
+    } else {
+        shiftedColor = vec3(c, 0.0, x);
+    }
+
+    return shiftedColor + vec3(m);
+}
+
+
+void main(float bias, float scale, float power, Texture2d tex, in vec4 startColor, out vec4 Color, out vec3 NormalWS, out vec4 Position, out float percentage) {
+
+    // Do the perspective divide.
+    // Important! Note that the Position.w needs to be outside of the fragment call so that this operation happens in the fragment shader!!
+    vec2 fragCoord = fragment(Position.xy ) / Position.w;
+    fragCoord = fragCoord * 0.5 + 0.5;
+    fragCoord.y = 1.0 - fragCoord.y;
+
+    vec3 N = normalize(getNormalMatrix() * getVertexNormal());
+
+    NormalWS = N;
+
+    Position = getModelViewProjectionMatrix() * getVertexPosition();
+ 
+    // Rotate the vector
+    vec3 rotatedVector = rotateVector(N, getTime() * 1.0);
+
+    //rotatedVector = rotated;
+
+    // First we calculat the vertex position in world space
+    vec3 worldPosition = (getModelMatrix() * getVertexPosition()).xyz;
+
+    // Here we calculate a direction vector from the vertex position to the camera position
+    vec3 I = normalize(worldPosition - getCameraPosition().xyz);
+
+    float dotWorldCamera = dot(rotateVector(N, getTime() * 1.0), I);
+
+    //float dotWorldCamera = dot(rotateVector(N, getTime() * 1.0), cameraVector);
+
+    vec2 uv = getVertexTexCoord();
+
+    //vec2 uv = fragment(getVertexTexCoord());
+
+    // Get the fragment coordinate in screenspace
+    //vec2 uv = fragment(Position.xy ) / Position.w;
+    uv = uv * 0.5 + 0.5;
+    uv.y = 1.0 - uv.y;
+
+    float average = (uv.x + uv.y) * 0.5; // Average of x and y components
+
+    percentage = dotWorldCamera + average;
+
+    //Color = vec4(hueShift(startColor.rgb, percentage * 10.0), startColor.a);
+
+    // A fresnel shader is a shader that calculates how much of the geometry is facing the camera. 
+    // The brighter the value, the more it is facing away.
+
+    // Then we do the same for the vertex normal
+    vec3 worldNormal = (getModelMatrix() * vec4(getVertexNormal(), 0.0)).xyz;
+
+    // Here we calculate a direction vector from the vertex position to the camera position
+    //vec3 I = normalize(worldPosition - getCameraPosition().xyz);
+
+    // This is where we calculate how much of the material is facing the camera
+    float facingRatio = dot(worldNormal, I);
+
+    // A simple equation for styling the fresnel
+    float fresnel = bias + scale * pow(1.0 + facingRatio, power);
+
+    float clampedFresnel = clamp(fresnel, 0.0, 1.0);
+
+    // Apply hue shift to startColor
+    //Color = vec4(hueShift(startColor.rgb, percentage * 10.0), fresnel + 0.1);
+
+    vec4 finalColor = vec4(hueShift(startColor.rgb, percentage * 10.0), 1.0);
+
+    Color = vec4(finalColor.rgb * (clampedFresnel + 0.1), clampedFresnel + 0.1);
+
+}

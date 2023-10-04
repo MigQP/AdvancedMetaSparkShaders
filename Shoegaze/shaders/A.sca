@@ -1,0 +1,10 @@
+
+using namespace std;
+
+void main(in Texture2d myTex,out vec4 Color  ) {
+
+  vec2 fragCoord = fragment(floor(getRenderTargetSize() * getVertexTexCoord()));
+
+	vec2 uv = fragCoord.xy / getRenderTargetSize().xy;
+    Color = myTex.sample(uv);
+}

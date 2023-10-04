@@ -1,0 +1,96 @@
+{
+  "id": "5159958bf8cb49ef1de459fbeb8e9630888bd49",
+  "revision": "5163479bf8cb49ef1de459fbeb8e9630888bd49",
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 168
+  },
+  "creatorIdentifier": "com.facebook.arstudio.skylight",
+  "creatorPlatform": "windows",
+  "creatorFileVersion": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 168
+  },
+  "sectionContent": {
+    "modelName": "patch_graphs_model",
+    "identifier": "patch_graphs_model:5159986-bf8cb49e-f1de-459f-beb8-e9630888bd49"
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:5161181-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "fromPatch": "producer_patch_model:5161055-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:5160801-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "toPort": "256"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:5161183-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "fromPatch": "shader_code_patch_model:5160801-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:5160931-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "toPort": "20"
+      }
+    ],
+    "graphs": [
+      {
+        "modelName": "patch_graph",
+        "identifier": "patch_graph:5160050-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "subpatches": [
+          "consumer_patch_model:5160931-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+          "producer_patch_model:5161055-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+          "producer_patch_model:5161209-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+          "shader_code_patch_model:5160801-bf8cb49e-f1de-459f-beb8-e9630888bd49"
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "modelName": "consumer_patch_model",
+        "name": "Device",
+        "identifier": "consumer_patch_model:5160931-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "object": "device:5160034-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "objectProperty": "render_pass_final_output",
+        "position": [
+          460.07499999999993,
+          171.39999999999998
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "cameraTexture0",
+        "identifier": "producer_patch_model:5161055-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "object": "cameraTexture:5160921-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "position": [
+          -4,
+          116
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "Device",
+        "identifier": "producer_patch_model:5161209-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "object": "device:5160034-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "position": [
+          83.19999694824219,
+          255.14999389648438
+        ]
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "shaderCodeAsset - main",
+        "identifier": "shader_code_patch_model:5160801-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "object": "shader_code_asset_model:5160283-bf8cb49e-f1de-459f-beb8-e9630888bd49",
+        "position": [
+          176.25,
+          47.5
+        ],
+        "shaderInterface": "shader_interface_model:5160285-bf8cb49e-f1de-459f-beb8-e9630888bd49"
+      }
+    ]
+  }
+}

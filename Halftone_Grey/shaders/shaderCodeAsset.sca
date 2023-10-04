@@ -1,0 +1,75 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+const float PI = 3.1415926535897932384626433832795;
+const float PI180 = float(PI / 180.0);
+
+
+
+
+
+
+float sind(float a)
+{
+	return sin(a * PI180);
+}
+
+float cosd(float a)
+{
+	return cos(a * PI180);
+}
+
+float added(vec2 sh, float sa, float ca, vec2 c, float d)
+{
+	return 0.5 + 0.25 * cos((sh.x * sa + sh.y * ca + c.x) * d) + 0.25 * cos((sh.x * ca - sh.y * sa + c.y) * d);
+}
+
+
+using namespace std;
+
+void main(in std::Texture2d myTex,out vec4 Color  ) {
+
+  vec2 fragCoord = fragment(floor(std::getRenderTargetSize() * std::getVertexTexCoord()));
+
+	//float threshold = clamp(float(u_mouse.x / u_resolution.x) + 0.6, 0.0, 1.0);
+    float threshold = clamp(float(2.0 / std::getRenderTargetSize().x) + 0.6, 0.0, 1.0);
+
+	float ratio = std::getRenderTargetSize().y / std::getRenderTargetSize().x;
+	float coordX = fragCoord.x / std::getRenderTargetSize().x;
+	float coordY = fragCoord.y / std::getRenderTargetSize().x;
+	vec2 dstCoord = vec2(coordX, coordY);
+	vec2 srcCoord = vec2(coordX, coordY / ratio);
+	vec2 rotationCenter = vec2(0.5, 0.5);
+	vec2 shift = dstCoord - rotationCenter;
+	
+	float dotSize = 5.0;
+	float angle = 35.0;
+	
+	float rasterPattern = added(shift, sind(angle), cosd(angle), rotationCenter, PI / dotSize * 680.0);
+
+    
+    vec2 st = fragCoord.xy/std::getRenderTargetSize().xy;
+    st.x *= std::getRenderTargetSize().x/std::getRenderTargetSize().y;
+
+    vec3 color = vec3(0.);
+    color = vec3(st.x,st.y,abs(sin(std::getTime())));
+    
+	//vec4 srcPixel = texture(color, srcCoord);
+  
+  vec2 uv = std::getVertexTexCoord();
+
+  
+
+  vec4 tex = myTex.sample(uv);
+        
+	float avg = 0.2125 * tex.r + 0.7154 * tex.g + 0.0721 * tex.b;
+  float gray = (rasterPattern * threshold + avg - threshold) / (1.0 - threshold);
+
+	// uncomment to see how the raster pattern looks 
+  // gray = rasterPattern;
+  
+  Color = vec4(gray, gray, gray, 1.0);
+	//gl_FragColor = vec4(gray, gray, gray, 1.0);
+
+}

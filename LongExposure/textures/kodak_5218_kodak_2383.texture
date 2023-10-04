@@ -1,0 +1,42 @@
+{
+  "modelName": "texture",
+  "name": "kodak_5218_kodak_2383",
+  "identifier": "texture:390895-e280f714-4270-4e45-b2ea-2e073a9e7927",
+  "sourceIdentifier": "color_lut_model:390893-e280f714-4270-4e45-b2ea-2e073a9e7927",
+  "alphaPremultiplicationMode": "none",
+  "assetDataHash": "ef03abfe38dd393ddd1aaba375cd1023",
+  "assetLocator": "textures/kodak_5218_kodak_2383.png",
+  "colorEncoding": "linear",
+  "compressionQuality": "high",
+  "coordMapping": "none",
+  "excludeDuringExport": false,
+  "excludeFromPackage": false,
+  "exportConfigurations": [
+    "textureExportConfig:390897-e280f714-4270-4e45-b2ea-2e073a9e7927",
+    "textureExportConfig:390899-e280f714-4270-4e45-b2ea-2e073a9e7927",
+    "textureExportConfig:390901-e280f714-4270-4e45-b2ea-2e073a9e7927"
+  ],
+  "filter": "bilinear",
+  "hasOfflineMipmaps": false,
+  "height": 512,
+  "importIssues": {},
+  "isExternalAsset": true,
+  "smartTextureTargetSizeLimit": "largest",
+  "targetSize": "largest",
+  "uWrapMode": "clamp",
+  "vWrapMode": "clamp",
+  "width": 512,
+  "children": [
+    {
+      "modelName": "data_texture_metadata_model",
+      "name": "data_texture_metadata_model0",
+      "assetDataHash": "ef03abfe38dd393ddd1aaba375cd1023",
+      "colorCount": 256328,
+      "detectedAlphaChannel": "no_alpha",
+      "detectedOriginalFormat": "png",
+      "entropyOfDistribution": 17.949190994463336,
+      "pixelsHigh": 512,
+      "pixelsWide": 512
+    }
+  ]
+}

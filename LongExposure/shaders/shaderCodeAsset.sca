@@ -1,0 +1,26 @@
+//==============================================================================
+// Welcome to shader authoring in Meta Spark Studio!
+//==============================================================================
+
+
+using namespace std;
+
+void main(in Texture2d myTex,out vec4 Color  ) {
+
+  vec2 fragCoord = fragment(floor(std::getRenderTargetSize() * std::getVertexTexCoord()));
+
+  vec2 p = fragCoord / getRenderTargetSize().xy;
+
+  //fragCoord /= getRenderTargetSize().xy;
+
+  //p /= getRenderTargetSize().xy;
+
+  p /= getRenderTargetSize().xy;
+
+  vec2 uv = fragCoord.xy / getRenderTargetSize().xy;
+	//uv /= getRenderTargetSize();
+  //vec2 uv = fragCoord.xy / p.xy;
+	Color = myTex.sample(p);
+
+
+}

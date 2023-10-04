@@ -1,0 +1,41 @@
+{
+  "modelName": "texture",
+  "name": "9104-bump",
+  "identifier": "texture:104763-51e8caed-5df2-4c1d-83b5-e9aace44f130",
+  "alphaPremultiplicationMode": "should_premultiply",
+  "assetDataHash": "abd5bf9d250b82820b2f599346192eea",
+  "assetLocator": "textures/9104-bump.jpg",
+  "colorEncoding": "linear",
+  "compressionQuality": "high",
+  "coordMapping": "none",
+  "excludeDuringExport": false,
+  "excludeFromPackage": false,
+  "exportConfigurations": [
+    "textureExportConfig:104813-51e8caed-5df2-4c1d-83b5-e9aace44f130",
+    "textureExportConfig:104815-51e8caed-5df2-4c1d-83b5-e9aace44f130",
+    "textureExportConfig:104817-51e8caed-5df2-4c1d-83b5-e9aace44f130"
+  ],
+  "filter": "nearest",
+  "hasOfflineMipmaps": false,
+  "height": 512,
+  "importIssues": {},
+  "isExternalAsset": true,
+  "smartTextureTargetSizeLimit": "largest",
+  "targetSize": "largest",
+  "uWrapMode": "repeat",
+  "vWrapMode": "repeat",
+  "width": 512,
+  "children": [
+    {
+      "modelName": "data_texture_metadata_model",
+      "name": "data_texture_metadata_model0",
+      "assetDataHash": "abd5bf9d250b82820b2f599346192eea",
+      "colorCount": 278,
+      "detectedAlphaChannel": "no_alpha",
+      "detectedOriginalFormat": "jpeg",
+      "entropyOfDistribution": 6.66878206735177,
+      "pixelsHigh": 512,
+      "pixelsWide": 512
+    }
+  ]
+}

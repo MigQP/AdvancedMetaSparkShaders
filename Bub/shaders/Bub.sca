@@ -1,0 +1,41 @@
+
+// Inputs
+//vec3 getFragmentNormal();
+//mat4 getModelMatrix();;
+
+// Outputs
+//out vec3 NormalWorldSpace [[out]];
+
+using namespace std;
+
+void main(in vec3 fragNormal, in mat4 modelMatrix, in mat4 worldMatrix, in vec4 cc, out vec4 Color, out vec3 NormalWS, out vec4 Position, out vec2 worldAligUV, out vec3 cc2) {
+
+    Position = getModelViewProjectionMatrix() * getVertexPosition();
+
+    // Do the perspective divide.
+    // Important! Note that the Position.w needs to be outside of the fragment call so that this operation happens in the fragment shader!!
+    vec2 fragCoord = fragment(Position.xy ) / Position.w;
+    fragCoord = fragCoord * 0.5 + 0.5;
+
+    // Transform the vertex position from local to world space
+    //vec4 worldPosition = worldMatrix * vec4(fragCoord.xy, 0.0, 1.0);
+
+    //worldPos = worldPosition;
+
+    // Calculate the world-aligned texture coordinates
+    //vec2 worldAlignedUV = worldPosition.xy / worldPosition.w;
+
+    //worldAligUV = worldAlignedUV;
+
+
+    // Transform the normal from tangent space to world space
+    //NormalWorldSpace = normalize((getModelMatrix() * vec4(getFragmentNormal(), 0.0)).xyz);
+
+    vec3 NormalWorldSpace = normalize((modelMatrix * vec4(fragNormal, 0.0)).xyz);
+
+    NormalWS = NormalWorldSpace;
+
+    //cc2 = cc.xyz;
+
+    Color = vec4(NormalWorldSpace, 1.0);
+}

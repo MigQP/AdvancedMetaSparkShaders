@@ -1,0 +1,62 @@
+// random function
+#define rand(n) fract(cos(n*89.42)*343.42)
+
+#define blur_fac 1.0   // blur the trails > higher = more blur
+#define draw_intensity 5.0  // how strong the diff is drawn to the canvas 
+#define noise_intensity .1 // how much noise is mixed in diff
+
+#define fade_speed 0.999 //
+
+#define bg_col vec3(.1,.1,.1) // set some fixed background color
+
+#define feedback_displace_y  .0005
+
+
+#ifndef saturate
+#define saturate(v) clamp(v,0.,1.)
+//      clamp(v,0.,1.)
+#endif
+
+vec3 hue2rgb(float hue){
+	hue=fract(hue);
+	return saturate(vec3(
+   
+		abs(hue*6.-3.)-1.,
+		2.-abs(hue*6.-2.),
+		2.-abs(hue*6.-4.)
+	));
+}
+
+using namespace std;
+
+void main(in Texture2d myTex1, in Texture2d myTex2,out vec4 Color  ) {
+
+  vec2 fragCoord = fragment(floor(getRenderTargetSize() * getVertexTexCoord()));
+
+  	
+   
+    
+  vec2 uv = fragCoord.xy / getRenderTargetSize().xy; 
+  // float amp =   texture(iChannel2,vec2(0,1)).r *5.;
+   
+  //float amp = texelFetch(iChannel0, ivec2(1., 1.), 0).r * 11.;
+ 
+   
+     
+       
+      vec3 color1 = myTex1.sample(uv).rgb;
+      vec3 color2 = myTex2.sample(uv).rgb;
+      
+      
+
+      float motion = abs((0.299*color1.r + 0.587*color1.g + 0.114*color1.b) - (0.299*color2.r + 0.587*color2.g + 0.114*color2.b));
+
+      vec3 color = vec3(draw_intensity * motion    )  ;
+
+      color -=  rand(uv.x * getTime() + uv.y * getTime())*noise_intensity;
+
+      color =   hue2rgb(getTime()*.1)* color;
+
+ 
+      Color = vec4(color, 1.0);
+}

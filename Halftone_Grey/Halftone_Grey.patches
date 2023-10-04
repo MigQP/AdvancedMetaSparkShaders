@@ -1,0 +1,81 @@
+{
+  "id": "91710515021db361a431ca1281f72fb17f7b4",
+  "revision": "94658515021db361a431ca1281f72fb17f7b4",
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 170
+  },
+  "creatorIdentifier": "com.facebook.arstudio.skylight",
+  "creatorPlatform": "windows",
+  "creatorFileVersion": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 168
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:92695-515021db-361a-431c-a128-1f72fb17f7b4",
+        "fromPatch": "producer_patch_model:92429-515021db-361a-431c-a128-1f72fb17f7b4",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:92171-515021db-361a-431c-a128-1f72fb17f7b4",
+        "toPort": "256"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:92919-515021db-361a-431c-a128-1f72fb17f7b4",
+        "fromPatch": "shader_code_patch_model:92171-515021db-361a-431c-a128-1f72fb17f7b4",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:92917-515021db-361a-431c-a128-1f72fb17f7b4",
+        "toPort": "1"
+      }
+    ],
+    "graphs": [
+      {
+        "modelName": "patch_graph",
+        "identifier": "patch_graph:91802-515021db-361a-431c-a128-1f72fb17f7b4",
+        "subpatches": [
+          "consumer_patch_model:92917-515021db-361a-431c-a128-1f72fb17f7b4",
+          "producer_patch_model:92429-515021db-361a-431c-a128-1f72fb17f7b4",
+          "shader_code_patch_model:92171-515021db-361a-431c-a128-1f72fb17f7b4"
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "modelName": "consumer_patch_model",
+        "name": "material0",
+        "identifier": "consumer_patch_model:92917-515021db-361a-431c-a128-1f72fb17f7b4",
+        "object": "composed_material_parameter_model:92723-515021db-361a-431c-a128-1f72fb17f7b4",
+        "objectProperty": "shader_parameter",
+        "position": [
+          1124,
+          44
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "cameraTexture0",
+        "identifier": "producer_patch_model:92429-515021db-361a-431c-a128-1f72fb17f7b4",
+        "object": "cameraTexture:92427-515021db-361a-431c-a128-1f72fb17f7b4",
+        "position": [
+          476,
+          68
+        ]
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "shaderCodeAsset - main",
+        "identifier": "shader_code_patch_model:92171-515021db-361a-431c-a128-1f72fb17f7b4",
+        "object": "shader_code_asset_model:92035-515021db-361a-431c-a128-1f72fb17f7b4",
+        "position": [
+          716,
+          68
+        ],
+        "shaderInterface": "shader_interface_model:92037-515021db-361a-431c-a128-1f72fb17f7b4"
+      }
+    ]
+  }
+}

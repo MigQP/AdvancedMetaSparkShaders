@@ -1,0 +1,16 @@
+
+using namespace std;
+
+void main(in Texture2d myTex1, in Texture2d myTex2, out vec4 Color ) {
+
+  vec2 fragCoord = fragment(floor(getRenderTargetSize() * getVertexTexCoord()));
+
+  vec2 uv = fragCoord.xy / getRenderTargetSize().xy;
+    
+  vec3 col_0 = myTex1.sample(uv).rgb;
+  vec3 col_1 = myTex2.sample(uv).rgb;
+
+  
+  Color = vec4(mix(col_1, clamp(col_0, col_1 - 1.0 /255.0, col_1 + 96.0 / 255.0), 0.75), 1.0);
+
+}

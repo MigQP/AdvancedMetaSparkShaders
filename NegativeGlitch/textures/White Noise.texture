@@ -1,0 +1,36 @@
+{
+  "modelName": "texture",
+  "name": "White Noise",
+  "identifier": "texture:96897-21279252-a5ce-46b3-94ba-06745ef305a0",
+  "alphaPremultiplicationMode": "should_premultiply",
+  "assetDataHash": "02487bee8c541c338ff6281e18857f0a",
+  "assetLocator": "textures/White Noise.png",
+  "colorEncoding": "linear",
+  "compressionQuality": "high",
+  "coordMapping": "none",
+  "excludeDuringExport": false,
+  "excludeFromPackage": false,
+  "filter": "bilinear",
+  "hasOfflineMipmaps": false,
+  "height": 1024,
+  "importIssues": {},
+  "isExternalAsset": true,
+  "smartTextureTargetSizeLimit": "largest",
+  "targetSize": "largest",
+  "uWrapMode": "clamp",
+  "vWrapMode": "clamp",
+  "width": 1024,
+  "children": [
+    {
+      "modelName": "data_texture_metadata_model",
+      "name": "data_texture_metadata_model0",
+      "assetDataHash": "02487bee8c541c338ff6281e18857f0a",
+      "colorCount": 255,
+      "detectedAlphaChannel": "no_alpha",
+      "detectedOriginalFormat": "png",
+      "entropyOfDistribution": 7.990745487715658,
+      "pixelsHigh": 1024,
+      "pixelsWide": 1024
+    }
+  ]
+}

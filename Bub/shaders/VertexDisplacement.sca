@@ -1,0 +1,16 @@
+using namespace std;
+
+void main (Texture2d tex, float tiling, float amplitude, float frequency, out vec4 Color, out vec4 Position)
+{
+  vec2 uv = getVertexTexCoord();
+  vec4 position = getVertexPosition();
+  vec3 normal = getVertexNormal();
+
+  vec3 sinValue = sin(position.xyz * tiling + getTime() * frequency) * 0.5 + 0.5;
+  sinValue += amplitude;
+  position = vec4(position.xyz + normal * sinValue, position.w);
+  Position = getModelViewProjectionMatrix() * position;
+
+  vec4 col = tex.sample(uv);
+  Color = col;
+}

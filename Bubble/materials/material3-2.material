@@ -44,7 +44,7 @@
   "isDiffuseTextureIdentifierEnabled": false,
   "isEmissiveTextureIdentifierEnabled": false,
   "isMetallicRoughnessTextureIdentifierEnabled": false,
-  "isNormalTextureIdentifierEnabled": false,
+  "isNormalTextureIdentifierEnabled": true,
   "isOcclusionTextureIdentifierEnabled": false,
   "isSpecularEnvironmentTextureIdentifierEnabled": false,
   "metallicFactor": 0.5614035129547119,

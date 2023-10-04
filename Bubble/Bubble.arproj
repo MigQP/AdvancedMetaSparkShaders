@@ -2,7 +2,7 @@
   "modelName": "document",
   "name": "Effect",
   "identifier": "document:94153-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-  "id": "9415151e8caed5df24c1d83b5e9aace44f130",
+  "id": "93260bd120133700f48db97dde8ce5480778f",
   "revision": "17747822def02661244b0798d310ee51a0217f",
   "version": {
     "dev": 0,
@@ -38,10 +38,13 @@
       "identifier": "physics_worlds_model:100561-51e8caed-5df2-4c1d-83b5-e9aace44f130"
     }
   ],
+  "previousDocumentIds": [
+    "9415151e8caed5df24c1d83b5e9aace44f130"
+  ],
   "projectFormatType": "separated_files",
   "usingPatchesV2": true,
   "visual_programming": {
-    "sectionFileLocation": "Bub.patches"
+    "sectionFileLocation": "Bubble.patches"
   },
   "children": [
     {
@@ -128,7 +131,7 @@
       ]
     },
     {
-      "sectionFileLocation": "Bub.scene"
+      "sectionFileLocation": "Bubble.scene"
     },
     {
       "modelName": "layers",

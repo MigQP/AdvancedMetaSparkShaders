@@ -33,25 +33,68 @@
       "children": [
         {
           "modelName": "composed_material_parameter_model",
+          "name": "bias",
+          "identifier": "composed_material_parameter_model:121903-c9f6b808-f38a-4186-956a-df42ca5adcab",
+          "isTextureIdentifierEnabled": false,
+          "rawValue": [
+            0.1
+          ],
+          "type": "float"
+        },
+        {
+          "modelName": "composed_material_parameter_model",
+          "name": "scale",
+          "identifier": "composed_material_parameter_model:121905-c9f6b808-f38a-4186-956a-df42ca5adcab",
+          "isTextureIdentifierEnabled": false,
+          "rawValue": [
+            2
+          ],
+          "type": "float"
+        },
+        {
+          "modelName": "composed_material_parameter_model",
+          "name": "power",
+          "identifier": "composed_material_parameter_model:121907-c9f6b808-f38a-4186-956a-df42ca5adcab",
+          "isTextureIdentifierEnabled": false,
+          "rawValue": [
+            50
+          ],
+          "type": "float"
+        },
+        {
+          "modelName": "composed_material_parameter_model",
           "name": "tex",
-          "identifier": "composed_material_parameter_model:94573-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+          "identifier": "composed_material_parameter_model:121909-c9f6b808-f38a-4186-956a-df42ca5adcab",
           "isTextureIdentifierEnabled": false,
           "type": "texture"
         },
         {
           "modelName": "composed_material_parameter_model",
-          "name": "tiling",
-          "identifier": "composed_material_parameter_model:94575-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+          "name": "fresnelColor",
+          "identifier": "composed_material_parameter_model:121911-c9f6b808-f38a-4186-956a-df42ca5adcab",
           "isTextureIdentifierEnabled": false,
           "rawValue": [
-            20
+            0,
+            0,
+            0,
+            0
+          ],
+          "type": "vec4"
+        },
+        {
+          "modelName": "composed_material_parameter_model",
+          "name": "tiling",
+          "identifier": "composed_material_parameter_model:121913-c9f6b808-f38a-4186-956a-df42ca5adcab",
+          "isTextureIdentifierEnabled": false,
+          "rawValue": [
+            10
           ],
           "type": "float"
         },
         {
           "modelName": "composed_material_parameter_model",
           "name": "amplitude",
-          "identifier": "composed_material_parameter_model:94577-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+          "identifier": "composed_material_parameter_model:121915-c9f6b808-f38a-4186-956a-df42ca5adcab",
           "isTextureIdentifierEnabled": false,
           "rawValue": [
             1
@@ -61,7 +104,7 @@
         {
           "modelName": "composed_material_parameter_model",
           "name": "frequency",
-          "identifier": "composed_material_parameter_model:94579-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+          "identifier": "composed_material_parameter_model:121917-c9f6b808-f38a-4186-956a-df42ca5adcab",
           "isTextureIdentifierEnabled": false,
           "rawValue": [
             2

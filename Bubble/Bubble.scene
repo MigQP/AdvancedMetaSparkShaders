@@ -174,7 +174,7 @@
                 },
                 {
                   "modelName": "3_d_object_instance_model",
-                  "name": "HiresSphere",
+                  "name": "bubble",
                   "identifier": "master3_d_object_model:95698-51e8caed-5df2-4c1d-83b5-e9aace44f130",
                   "sourceIdentifier": "master3_d_object_model:94652-51e8caed-5df2-4c1d-83b5-e9aace44f130",
                   "animationMask": {
@@ -185,7 +185,7 @@
                   "cameraVisibility": "back|front",
                   "depth": 0.04972612112760544,
                   "height": 0.04999999701976776,
-                  "hidden": false,
+                  "hidden": true,
                   "layerIdentifier": "layer0",
                   "outputVisibility": "preview|capture",
                   "physicsEnabled": false,
@@ -265,7 +265,7 @@
                 },
                 {
                   "modelName": "3_d_object_instance_model",
-                  "name": "HiresSphere0",
+                  "name": "bubble_vertexDisplace",
                   "identifier": "master3_d_object_model100607-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
                   "sourceIdentifier": "master3_d_object_model100568-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
                   "animationMask": {
@@ -276,7 +276,7 @@
                   "cameraVisibility": "back|front",
                   "depth": 0.04972612112760544,
                   "height": 0.04999999701976776,
-                  "hidden": true,
+                  "hidden": false,
                   "layerIdentifier": "layer0",
                   "outputVisibility": "preview|capture",
                   "physicsEnabled": false,
@@ -356,7 +356,7 @@
                 },
                 {
                   "modelName": "3_d_object_instance_model",
-                  "name": "HiresSphere1",
+                  "name": "bubble2",
                   "identifier": "master3_d_object_model199879-22def026-6124-4b07-98d3-10ee51a0217f",
                   "sourceIdentifier": "master3_d_object_model199878-22def026-6124-4b07-98d3-10ee51a0217f",
                   "animationMask": {
@@ -367,20 +367,20 @@
                   "cameraVisibility": "back|front",
                   "depth": 0.04972612112760544,
                   "height": 0.04999999701976776,
-                  "hidden": false,
+                  "hidden": true,
                   "layerIdentifier": "layer0",
                   "outputVisibility": "preview|capture",
                   "physicsEnabled": false,
                   "tags": [],
                   "transform": {
                     "rx": 0,
-                    "ry": 0,
+                    "ry": -0,
                     "rz": 0,
                     "sx": 3.299999952316284,
                     "sy": 3.299999475479126,
                     "sz": 3.299999952316284,
-                    "x": 0,
-                    "y": 0.12004148960113525,
+                    "x": -0.0017777382163330913,
+                    "y": 0.12004126608371735,
                     "z": -1.1920928955078125E-7
                   },
                   "width": 0.050000011920928955,

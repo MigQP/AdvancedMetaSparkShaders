@@ -41,11 +41,19 @@
       },
       {
         "modelName": "patch_connection_model",
-        "identifier": "patch_connection_model:121484-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+        "identifier": "patch_connection_model:119173-c9f6b808-f38a-4186-956a-df42ca5adcab",
         "fromPatch": "template_patch_model:115006-22def026-6124-4b07-98d3-10ee51a0217f",
         "fromPort": "100",
         "toPatch": "shader_code_patch_model:93901-03a9d786-747f-4277-a768-4f796aacce60",
         "toPort": "1280"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:124963-c9f6b808-f38a-4186-956a-df42ca5adcab",
+        "fromPatch": "shader_code_patch_model:93901-03a9d786-747f-4277-a768-4f796aacce60",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:122727-c9f6b808-f38a-4186-956a-df42ca5adcab",
+        "toPort": "1"
       },
       {
         "modelName": "patch_connection_model",
@@ -71,9 +79,9 @@
         "subpatches": [
           "consumer_patch_model:116892-1dd3176b-05da-46c5-96de-3eaa0161fab1",
           "consumer_patch_model:116918-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+          "consumer_patch_model:122727-c9f6b808-f38a-4186-956a-df42ca5adcab",
           "consumer_patch_model:223397-03a9d786-747f-4277-a768-4f796aacce60",
           "consumer_patch_model:227128-03a9d786-747f-4277-a768-4f796aacce60",
-          "consumer_patch_model:95233-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
           "patch_asset_instance_model:330920-03a9d786-747f-4277-a768-4f796aacce60",
           "shader_code_patch_model:93901-03a9d786-747f-4277-a768-4f796aacce60",
           "template_patch_model:114498-1dd3176b-05da-46c5-96de-3eaa0161fab1",
@@ -106,6 +114,31 @@
       },
       {
         "modelName": "consumer_patch_model",
+        "name": "mtl_bubbleDisplacement",
+        "identifier": "consumer_patch_model:122727-c9f6b808-f38a-4186-956a-df42ca5adcab",
+        "object": "composed_material_parameter_model:121911-c9f6b808-f38a-4186-956a-df42ca5adcab",
+        "objectProperty": "shader_parameter",
+        "position": [
+          3596,
+          1196
+        ],
+        "values": [
+          {
+            "port": "1",
+            "value": {
+              "t": "vec4",
+              "v": [
+                0,
+                1,
+                0,
+                1
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "modelName": "consumer_patch_model",
         "name": "material1",
         "identifier": "consumer_patch_model:223397-03a9d786-747f-4277-a768-4f796aacce60",
         "object": "metallicRoughnessPbrMaterial:222885-03a9d786-747f-4277-a768-4f796aacce60",
@@ -124,17 +157,6 @@
         "position": [
           3932,
           932
-        ]
-      },
-      {
-        "modelName": "consumer_patch_model",
-        "name": "mtl_bubbleDisplacement",
-        "identifier": "consumer_patch_model:95233-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
-        "object": "composed_material_parameter_model:94573-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
-        "objectProperty": "shader_parameter",
-        "position": [
-          2084,
-          1220
         ]
       },
       {

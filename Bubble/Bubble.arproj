@@ -104,6 +104,9 @@
         },
         {
           "sectionFileLocation": "materials/material3-2.material"
+        },
+        {
+          "sectionFileLocation": "materials/mtl_vertexDisplace-2.material"
         }
       ]
     },
@@ -186,142 +189,9 @@
       "children": [
         {
           "modelName": "shader_code_asset_model",
-          "name": "Bub",
-          "identifier": "shader_code_asset_model:94480-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-          "assetDataHash": "6e7d05233ae87860e1274e9c42dc50c3",
-          "assetLocator": "shaders/Bub.sca",
-          "builtinDeps": [
-            "texture2d",
-            "textureEnv"
-          ],
-          "externalDeps": [],
-          "isExternalAsset": true,
-          "moduleName": "sparkShaderCode5309599264250143064",
-          "wordsHash": -5304051734619713498,
-          "children": [
-            {
-              "modelName": "shader_interface_model",
-              "identifier": "shader_interface_model:94482-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-              "description": "",
-              "functionName": "user::main",
-              "linkageName": "sparkShaderCode5309599264250143064",
-              "children": [
-                {
-                  "modelName": "shaderInputPorts",
-                  "identifier": "shaderInputPorts:94484-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                  "children": [
-                    {
-                      "modelName": "shader_input_port_model",
-                      "name": "fragNormal",
-                      "identifier": "shader_input_port_model:94488-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "defaultValue": {
-                        "type": 2,
-                        "value": [
-                          0,
-                          0,
-                          0
-                        ]
-                      },
-                      "description": "",
-                      "valueType": "vec3"
-                    },
-                    {
-                      "modelName": "shader_input_port_model",
-                      "name": "modelMatrix",
-                      "identifier": "shader_input_port_model:94490-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "defaultValue": {
-                        "type": 0,
-                        "value": 1
-                      },
-                      "description": "",
-                      "valueType": "mat4"
-                    },
-                    {
-                      "modelName": "shader_input_port_model",
-                      "name": "worldMatrix",
-                      "identifier": "shader_input_port_model:94492-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "defaultValue": {
-                        "type": 0,
-                        "value": 1
-                      },
-                      "description": "",
-                      "valueType": "mat4"
-                    },
-                    {
-                      "modelName": "shader_input_port_model",
-                      "name": "cc",
-                      "identifier": "shader_input_port_model:94494-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "defaultValue": {
-                        "type": 3,
-                        "value": [
-                          0,
-                          0,
-                          0,
-                          0
-                        ]
-                      },
-                      "description": "",
-                      "valueType": "vec4"
-                    }
-                  ]
-                },
-                {
-                  "modelName": "shaderOutputPorts",
-                  "identifier": "shaderOutputPorts:94486-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                  "children": [
-                    {
-                      "modelName": "shader_output_port_model",
-                      "name": "return",
-                      "identifier": "shader_output_port_model:94496-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "description": "",
-                      "valueType": "void_return"
-                    },
-                    {
-                      "modelName": "shader_output_port_model",
-                      "name": "Color",
-                      "identifier": "shader_output_port_model:94498-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "description": "",
-                      "valueType": "vec4"
-                    },
-                    {
-                      "modelName": "shader_output_port_model",
-                      "name": "NormalWS",
-                      "identifier": "shader_output_port_model:94500-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "description": "",
-                      "valueType": "vec3"
-                    },
-                    {
-                      "modelName": "shader_output_port_model",
-                      "name": "Position",
-                      "identifier": "shader_output_port_model:94502-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "description": "",
-                      "valueType": "vec4"
-                    },
-                    {
-                      "modelName": "shader_output_port_model",
-                      "name": "worldAligUV",
-                      "identifier": "shader_output_port_model:94504-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "description": "",
-                      "valueType": "vec2"
-                    },
-                    {
-                      "modelName": "shader_output_port_model",
-                      "name": "cc2",
-                      "identifier": "shader_output_port_model:94506-51e8caed-5df2-4c1d-83b5-e9aace44f130",
-                      "description": "",
-                      "valueType": "vec3"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "modelName": "shader_code_asset_model",
           "name": "Bubble",
           "identifier": "shader_code_asset_model:93261-03a9d786-747f-4277-a768-4f796aacce60",
-          "assetDataHash": "889cc7578cec61b0cf5be7b35c08c807",
+          "assetDataHash": "218c84b7670a4fad5a61ff1dc4b0f004",
           "assetLocator": "shaders/Bubble.sca",
           "builtinDeps": [
             "texture2d",
@@ -329,15 +199,15 @@
           ],
           "externalDeps": [],
           "isExternalAsset": true,
-          "moduleName": "sparkShaderCode12814175112526712133",
-          "wordsHash": -5718352267681233125,
+          "moduleName": "sparkShaderCode10250292219030490905",
+          "wordsHash": 3047729821488865385,
           "children": [
             {
               "modelName": "shader_interface_model",
               "identifier": "shader_interface_model:93263-03a9d786-747f-4277-a768-4f796aacce60",
               "description": "",
               "functionName": "user::main",
-              "linkageName": "sparkShaderCode12814175112526712133",
+              "linkageName": "sparkShaderCode10250292219030490905",
               "children": [
                 {
                   "modelName": "shaderInputPorts",
@@ -346,7 +216,7 @@
                     {
                       "modelName": "shader_input_port_model",
                       "name": "bias",
-                      "identifier": "shader_input_port_model:184223-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_input_port_model:124525-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 0,
                         "value": 0
@@ -356,7 +226,7 @@
                     {
                       "modelName": "shader_input_port_model",
                       "name": "scale",
-                      "identifier": "shader_input_port_model:184225-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_input_port_model:124527-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 0,
                         "value": 0
@@ -366,7 +236,7 @@
                     {
                       "modelName": "shader_input_port_model",
                       "name": "power",
-                      "identifier": "shader_input_port_model:184227-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_input_port_model:124529-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 0,
                         "value": 0
@@ -376,7 +246,7 @@
                     {
                       "modelName": "shader_input_port_model",
                       "name": "tex",
-                      "identifier": "shader_input_port_model:184229-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_input_port_model:124531-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 0,
                         "value": 0
@@ -387,7 +257,7 @@
                     {
                       "modelName": "shader_input_port_model",
                       "name": "startColor",
-                      "identifier": "shader_input_port_model:184231-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_input_port_model:124533-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 3,
                         "value": [
@@ -409,35 +279,28 @@
                     {
                       "modelName": "shader_output_port_model",
                       "name": "return",
-                      "identifier": "shader_output_port_model:184233-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_output_port_model:124535-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "description": "",
                       "valueType": "void_return"
                     },
                     {
                       "modelName": "shader_output_port_model",
                       "name": "Color",
-                      "identifier": "shader_output_port_model:184235-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_output_port_model:124537-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "description": "",
                       "valueType": "vec4"
                     },
                     {
                       "modelName": "shader_output_port_model",
-                      "name": "NormalWS",
-                      "identifier": "shader_output_port_model:184237-1dd3176b-05da-46c5-96de-3eaa0161fab1",
-                      "description": "",
-                      "valueType": "vec3"
-                    },
-                    {
-                      "modelName": "shader_output_port_model",
                       "name": "Position",
-                      "identifier": "shader_output_port_model:184239-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_output_port_model:124539-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "description": "",
                       "valueType": "vec4"
                     },
                     {
                       "modelName": "shader_output_port_model",
                       "name": "percentage",
-                      "identifier": "shader_output_port_model:184241-1dd3176b-05da-46c5-96de-3eaa0161fab1",
+                      "identifier": "shader_output_port_model:124541-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "description": ""
                     }
                   ]
@@ -450,7 +313,7 @@
           "modelName": "shader_code_asset_model",
           "name": "VertexDisplacement",
           "identifier": "shader_code_asset_model:94505-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
-          "assetDataHash": "a4ff235b18ede045248468166cdf243f",
+          "assetDataHash": "2acea3e6208a4b9f36adf6218f4aa6a2",
           "assetLocator": "shaders/VertexDisplacement.sca",
           "builtinDeps": [
             "texture2d",
@@ -458,15 +321,15 @@
           ],
           "externalDeps": [],
           "isExternalAsset": true,
-          "moduleName": "sparkShaderCode5569422935033053769",
-          "wordsHash": -3639440610348218408,
+          "moduleName": "sparkShaderCode760172413707052557",
+          "wordsHash": -1236535736717815766,
           "children": [
             {
               "modelName": "shader_interface_model",
               "identifier": "shader_interface_model:94507-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
               "description": "",
               "functionName": "user::main",
-              "linkageName": "sparkShaderCode5569422935033053769",
+              "linkageName": "sparkShaderCode760172413707052557",
               "children": [
                 {
                   "modelName": "shaderInputPorts",
@@ -474,8 +337,38 @@
                   "children": [
                     {
                       "modelName": "shader_input_port_model",
+                      "name": "bias",
+                      "identifier": "shader_input_port_model:125405-c9f6b808-f38a-4186-956a-df42ca5adcab",
+                      "defaultValue": {
+                        "type": 0,
+                        "value": 0
+                      },
+                      "description": ""
+                    },
+                    {
+                      "modelName": "shader_input_port_model",
+                      "name": "scale",
+                      "identifier": "shader_input_port_model:125407-c9f6b808-f38a-4186-956a-df42ca5adcab",
+                      "defaultValue": {
+                        "type": 0,
+                        "value": 0
+                      },
+                      "description": ""
+                    },
+                    {
+                      "modelName": "shader_input_port_model",
+                      "name": "power",
+                      "identifier": "shader_input_port_model:125409-c9f6b808-f38a-4186-956a-df42ca5adcab",
+                      "defaultValue": {
+                        "type": 0,
+                        "value": 0
+                      },
+                      "description": ""
+                    },
+                    {
+                      "modelName": "shader_input_port_model",
                       "name": "tex",
-                      "identifier": "shader_input_port_model:94549-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+                      "identifier": "shader_input_port_model:125411-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 0,
                         "value": 0
@@ -485,8 +378,24 @@
                     },
                     {
                       "modelName": "shader_input_port_model",
+                      "name": "fresnelColor",
+                      "identifier": "shader_input_port_model:125413-c9f6b808-f38a-4186-956a-df42ca5adcab",
+                      "defaultValue": {
+                        "type": 3,
+                        "value": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "description": "",
+                      "valueType": "vec4"
+                    },
+                    {
+                      "modelName": "shader_input_port_model",
                       "name": "tiling",
-                      "identifier": "shader_input_port_model:94551-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+                      "identifier": "shader_input_port_model:125415-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 0,
                         "value": 0
@@ -496,7 +405,7 @@
                     {
                       "modelName": "shader_input_port_model",
                       "name": "amplitude",
-                      "identifier": "shader_input_port_model:94553-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+                      "identifier": "shader_input_port_model:125417-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 0,
                         "value": 0
@@ -506,7 +415,7 @@
                     {
                       "modelName": "shader_input_port_model",
                       "name": "frequency",
-                      "identifier": "shader_input_port_model:94555-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+                      "identifier": "shader_input_port_model:125419-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "defaultValue": {
                         "type": 0,
                         "value": 0
@@ -522,21 +431,78 @@
                     {
                       "modelName": "shader_output_port_model",
                       "name": "return",
-                      "identifier": "shader_output_port_model:94557-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+                      "identifier": "shader_output_port_model:125421-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "description": "",
                       "valueType": "void_return"
                     },
                     {
                       "modelName": "shader_output_port_model",
                       "name": "Color",
-                      "identifier": "shader_output_port_model:94559-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+                      "identifier": "shader_output_port_model:125423-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "description": "",
                       "valueType": "vec4"
                     },
                     {
                       "modelName": "shader_output_port_model",
                       "name": "Position",
-                      "identifier": "shader_output_port_model:94561-cdd9376a-a544-44b4-bd92-5c8a07ed191a",
+                      "identifier": "shader_output_port_model:125425-c9f6b808-f38a-4186-956a-df42ca5adcab",
+                      "description": "",
+                      "valueType": "vec4"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modelName": "shader_code_asset_model",
+          "name": "vertexDisplace.sca",
+          "identifier": "shader_code_asset_model:94610-c9f6b808-f38a-4186-956a-df42ca5adcab",
+          "assetDataHash": "607b648b5dbc7c8ed0a7f0e9367e6898",
+          "assetLocator": "shaders/vertexDisplace.sca",
+          "builtinDeps": [
+            "texture2d",
+            "textureEnv"
+          ],
+          "externalDeps": [],
+          "isExternalAsset": true,
+          "moduleName": "sparkShaderCode14051691590618728695",
+          "wordsHash": -90785875152177109,
+          "children": [
+            {
+              "modelName": "shader_interface_model",
+              "identifier": "shader_interface_model:94612-c9f6b808-f38a-4186-956a-df42ca5adcab",
+              "description": "",
+              "functionName": "user::main",
+              "linkageName": "sparkShaderCode14051691590618728695",
+              "children": [
+                {
+                  "modelName": "shaderInputPorts",
+                  "identifier": "shaderInputPorts:94614-c9f6b808-f38a-4186-956a-df42ca5adcab"
+                },
+                {
+                  "modelName": "shaderOutputPorts",
+                  "identifier": "shaderOutputPorts:94616-c9f6b808-f38a-4186-956a-df42ca5adcab",
+                  "children": [
+                    {
+                      "modelName": "shader_output_port_model",
+                      "name": "return",
+                      "identifier": "shader_output_port_model:98647-c9f6b808-f38a-4186-956a-df42ca5adcab",
+                      "description": "",
+                      "valueType": "void_return"
+                    },
+                    {
+                      "modelName": "shader_output_port_model",
+                      "name": "Position",
+                      "identifier": "shader_output_port_model:98649-c9f6b808-f38a-4186-956a-df42ca5adcab",
+                      "description": "",
+                      "valueType": "vec4"
+                    },
+                    {
+                      "modelName": "shader_output_port_model",
+                      "name": "Color",
+                      "identifier": "shader_output_port_model:98651-c9f6b808-f38a-4186-956a-df42ca5adcab",
                       "description": "",
                       "valueType": "vec4"
                     }

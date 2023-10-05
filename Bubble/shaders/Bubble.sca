@@ -67,7 +67,7 @@ vec3 hueShift(vec3 color, float shift) {
 }
 
 
-void main(float bias, float scale, float power, Texture2d tex, in vec4 startColor, out vec4 Color, out vec3 NormalWS, out vec4 Position, out float percentage) {
+void main(float bias, float scale, float power, Texture2d tex, in vec4 startColor, out vec4 Color, out vec4 Position, out float percentage) {
 
     // Do the perspective divide.
     // Important! Note that the Position.w needs to be outside of the fragment call so that this operation happens in the fragment shader!!
@@ -76,8 +76,6 @@ void main(float bias, float scale, float power, Texture2d tex, in vec4 startColo
     fragCoord.y = 1.0 - fragCoord.y;
 
     vec3 N = normalize(getNormalMatrix() * getVertexNormal());
-
-    NormalWS = N;
 
     Position = getModelViewProjectionMatrix() * getVertexPosition();
  
@@ -108,8 +106,6 @@ void main(float bias, float scale, float power, Texture2d tex, in vec4 startColo
     float average = (uv.x + uv.y) * 0.5; // Average of x and y components
 
     percentage = dotWorldCamera + average;
-
-    //Color = vec4(hueShift(startColor.rgb, percentage * 10.0), startColor.a);
 
     // A fresnel shader is a shader that calculates how much of the geometry is facing the camera. 
     // The brighter the value, the more it is facing away.

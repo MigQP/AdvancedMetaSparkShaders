@@ -66,6 +66,7 @@
           "name": "tex",
           "identifier": "composed_material_parameter_model:121909-c9f6b808-f38a-4186-956a-df42ca5adcab",
           "isTextureIdentifierEnabled": false,
+          "textureIdentifier": "cameraTexture:180968-22def026-6124-4b07-98d3-10ee51a0217f",
           "type": "texture"
         },
         {

@@ -66,7 +66,7 @@ void main (float bias, float scale, float power, Texture2d tex, in vec4 fresnelC
   //Color = col;
   //Color = fresnelColor;
 
-    // A fresnel shader is a shader that calculates how much of the geometry is facing the camera. 
+  // A fresnel shader is a shader that calculates how much of the geometry is facing the camera. 
   // The brighter the value, the more it is facing away.
 
   // First we calculat the vertex position in world space
@@ -88,6 +88,39 @@ void main (float bias, float scale, float power, Texture2d tex, in vec4 fresnelC
 
   //Color = vec4(col.rgb * (clampedFresnel + 0.1), clampedFresnel + 0.1);
 
-  Color = vec4(fresnelColor.rgb * clampedFresnel, clampedFresnel);
+  //Color = vec4(fresnelColor.rgb * clampedFresnel, clampedFresnel);
+
+  // Distortion inside mesh
+
+  // Get the worldspace noraml
+  vec3 N = normalize(getNormalMatrix() * getVertexNormal());
+
+  // Get the fragment coordinate in screenspace
+  vec2 uv1 = fragment(Position.xy ) / Position.w;
+  uv1 = uv1 * 0.5 + 0.5;
+  uv1.y = 1.0 - uv1.y;
+
+  // The bigger this number, the more glass distortion there will be
+  float eta = 1.14;
+  
+  // Use the refract function and slightly offset eta for chroma distortion
+  vec2 distortionR = fragment(refract(vec3(0.0, 0.0, -1.0), N, eta).xy);
+  vec2 distortionG = fragment(refract(vec3(0.0, 0.0, -1.0), N, eta + 0.005).xy);
+  vec2 distortionB = fragment(refract(vec3(0.0, 0.0, -1.0), N, eta + 0.01).xy);
+
+  // Sample the texture, adding the distortion
+  vec4 colR = tex.sample(uv1 + distortionR);
+  vec4 colG = tex.sample(uv1 + distortionG);
+  vec4 colB = tex.sample(uv1 + distortionB);
+
+  vec4 fres1 = vec4(fresnelColor.rgb * clampedFresnel, clampedFresnel);
+  // Pack the output into a single color
+  vec4 col1 = vec4(fres1.r + colR.r, fres1.g + colG.g, fres1.b + colB.b, clampedFresnel + 0.1);
+
+  // Apply the hue shift to the distorted color
+  vec3 shiftedRGB = hueShift(col1.rgb, amplitude);
+
+  // Output the color
+  Color = col1;
 
 }

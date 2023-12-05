@@ -1,0 +1,81 @@
+{
+  "id": "9216687d5c7b1fea143148f90a404227c380b",
+  "revision": "9279787d5c7b1fea143148f90a404227c380b",
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 172
+  },
+  "creatorIdentifier": "com.facebook.arstudio.skylight",
+  "creatorPlatform": "windows",
+  "creatorFileVersion": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 172
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:94100-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "fromPatch": "producer_patch_model:93972-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:93846-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "toPort": "256"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:94242-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "fromPatch": "shader_code_patch_model:93846-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:94102-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "toPort": "20"
+      }
+    ],
+    "graphs": [
+      {
+        "modelName": "patch_graph",
+        "identifier": "patch_graph:92258-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "subpatches": [
+          "consumer_patch_model:94102-87d5c7b1-fea1-4314-8f90-a404227c380b",
+          "producer_patch_model:93972-87d5c7b1-fea1-4314-8f90-a404227c380b",
+          "shader_code_patch_model:93846-87d5c7b1-fea1-4314-8f90-a404227c380b"
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "modelName": "consumer_patch_model",
+        "name": "Device",
+        "identifier": "consumer_patch_model:94102-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "object": "device:92242-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "objectProperty": "render_pass_final_output",
+        "position": [
+          860.3249999999997,
+          171.39999999999998
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "cameraTexture0",
+        "identifier": "producer_patch_model:93972-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "object": "cameraTexture:93970-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "position": [
+          328.45001220703125,
+          120.1500015258789
+        ]
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "Liquid_DOS - main",
+        "identifier": "shader_code_patch_model:93846-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "object": "shader_code_asset_model:93580-87d5c7b1-fea1-4314-8f90-a404227c380b",
+        "position": [
+          515,
+          121.25
+        ],
+        "shaderInterface": "shader_interface_model:93582-87d5c7b1-fea1-4314-8f90-a404227c380b"
+      }
+    ]
+  }
+}

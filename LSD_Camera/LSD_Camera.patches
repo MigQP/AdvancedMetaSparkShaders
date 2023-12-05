@@ -1,0 +1,111 @@
+{
+  "id": "92166ba97250f06074f54a77dd29355881855",
+  "revision": "97567ba97250f06074f54a77dd29355881855",
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 172
+  },
+  "creatorIdentifier": "com.facebook.arstudio.skylight",
+  "creatorPlatform": "windows",
+  "creatorFileVersion": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 172
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:93611-ba97250f-0607-4f54-a77d-d29355881855",
+        "fromPatch": "producer_patch_model:93445-ba97250f-0607-4f54-a77d-d29355881855",
+        "fromPort": "100",
+        "toPatch": "template_patch_model:93609-ba97250f-0607-4f54-a77d-d29355881855",
+        "toPort": "1"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:94041-ba97250f-0607-4f54-a77d-d29355881855",
+        "fromPatch": "producer_patch_model:93757-ba97250f-0607-4f54-a77d-d29355881855",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:93753-ba97250f-0607-4f54-a77d-d29355881855",
+        "toPort": "256"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:94043-ba97250f-0607-4f54-a77d-d29355881855",
+        "fromPatch": "shader_code_patch_model:93753-ba97250f-0607-4f54-a77d-d29355881855",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:93899-ba97250f-0607-4f54-a77d-d29355881855",
+        "toPort": "20"
+      }
+    ],
+    "graphs": [
+      {
+        "modelName": "patch_graph",
+        "identifier": "patch_graph:92258-ba97250f-0607-4f54-a77d-d29355881855",
+        "subpatches": [
+          "consumer_patch_model:93899-ba97250f-0607-4f54-a77d-d29355881855",
+          "producer_patch_model:93445-ba97250f-0607-4f54-a77d-d29355881855",
+          "producer_patch_model:93757-ba97250f-0607-4f54-a77d-d29355881855",
+          "shader_code_patch_model:93753-ba97250f-0607-4f54-a77d-d29355881855",
+          "template_patch_model:93609-ba97250f-0607-4f54-a77d-d29355881855"
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "modelName": "consumer_patch_model",
+        "name": "Device",
+        "identifier": "consumer_patch_model:93899-ba97250f-0607-4f54-a77d-d29355881855",
+        "object": "device:92242-ba97250f-0607-4f54-a77d-d29355881855",
+        "objectProperty": "render_pass_final_output",
+        "position": [
+          1100,
+          428
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "Microphone",
+        "identifier": "producer_patch_model:93445-ba97250f-0607-4f54-a77d-d29355881855",
+        "object": "microphone_model:92248-ba97250f-0607-4f54-a77d-d29355881855",
+        "position": [
+          186.25,
+          206.25
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "cameraTexture0",
+        "identifier": "producer_patch_model:93757-ba97250f-0607-4f54-a77d-d29355881855",
+        "object": "cameraTexture:93755-ba97250f-0607-4f54-a77d-d29355881855",
+        "position": [
+          651.9500122070312,
+          327.6499938964844
+        ]
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "shaderCodeAsset - main",
+        "identifier": "shader_code_patch_model:93753-ba97250f-0607-4f54-a77d-d29355881855",
+        "object": "shader_code_asset_model:92520-ba97250f-0607-4f54-a77d-d29355881855",
+        "position": [
+          810.7000122070312,
+          388.8999938964844
+        ],
+        "shaderInterface": "shader_interface_model:92522-ba97250f-0607-4f54-a77d-d29355881855"
+      },
+      {
+        "modelName": "template_patch_model",
+        "name": "Audio Analyzer",
+        "identifier": "template_patch_model:93609-ba97250f-0607-4f54-a77d-d29355881855",
+        "position": [
+          368.19999999999993,
+          321.4
+        ],
+        "templateId": "builtin.audioAnalyzer"
+      }
+    ]
+  }
+}

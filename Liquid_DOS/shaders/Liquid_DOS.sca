@@ -1,0 +1,88 @@
+// Impactful Parameters
+const float timeMultiplier = 3.;        // Adjusts speed of the time-based effects
+const vec2 gridScale = vec2(3., 5.);    // Adjusts scale of the grid
+const float patternMultiplier = 1.3;    // Adjusts intensity of the pattern
+const float threshold = 0.3;            // Adjusts intensity threshold for the digit
+const vec3 brightness = vec3(0.9);       // Adjusts brightness of the visual
+
+//uniform float time = 0.0;
+
+using namespace std;
+
+// generate a noise value for a given point p
+float noise(vec2 p) {
+    return sin(p.x * 10.) * sin(p.y * (3. + sin((getTime() / timeMultiplier) / 11.))) + .2; 
+}
+
+// generate a 2x2 rotation matrix
+mat2 rotate(float angle) {
+    return mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+}
+
+// Fractal Brownian Motion function
+float fbm(vec2 p, float luminance) {
+    p *= 1.0 + luminance;
+    float f = 0.;
+    float amp = .5;
+    for(int i = 0; i < 3; i++) {
+        mat2 modify = rotate(((getTime() / timeMultiplier) + luminance * 10.) / 50. * float(i * i));
+        f += amp * noise(p);
+        p = modify * p;
+        p *= 2.;
+        amp /= 2.2;
+    }
+    return f;
+}
+
+// generate a pattern based on noise
+float pattern(vec2 p, out vec2 q, out vec2 r, float luminance) {
+    q = vec2(fbm(p + vec2(1.), luminance), fbm(rotate(.1 * (getTime() / timeMultiplier)) * p + vec2(1.), luminance));
+    r = vec2(fbm(rotate(.1) * q + vec2(0.), luminance), fbm(q + vec2(0.), luminance));
+    return fbm(p + 1. * r, luminance);
+}
+
+// generate a visual representation of a digit based on noise
+float digit(vec2 p, float luminance) {
+    vec2 grid = gridScale * 15.;
+    vec2 s = floor(p * grid) / grid;
+    p = p * grid;
+    vec2 q, r;
+    float intensity = pattern(s / 10., q, r, luminance) * patternMultiplier - 0.03;
+    p = fract(p);
+    p *= vec2(1.2, 1.2);
+    float x = fract(p.x * 5.);
+    float y = fract((1. - p.y) * 5.);
+    int i = int(floor((1. - p.y) * 5.));
+    int j = int(floor(p.x * 5.));
+    int n = (i-2)*(i-2)+(j-2)*(j-2);
+    float f = float(n)/16.;
+    float isOn = intensity - f > threshold ? 1. : 0.;
+    return p.x <= 1. && p.y <= 1. ? isOn * (0.2 + y*4./5.) * (0.75 + x/4.) : 0.;
+}
+
+// color for a given point p
+vec3 getColor(vec2 p, float luminance) {
+    float bar = mod(p.y + (getTime() / timeMultiplier) * 20., 1.) < 0.2 ?  1.4  : 1.;
+    float middle = digit(p, luminance);
+    float off = 0.002;
+    float sum = 0.;
+    for (float i = -1.; i < 2.; i += 1.) {
+        for (float j = -1.; j < 2.; j += 1.) {
+            sum += digit(p + vec2(off * i, off * j), luminance);
+        }
+    }
+    return brightness * middle + sum/10. * vec3(0., 1., 0.) * bar;
+}
+
+void main(in std::Texture2d myTex,out vec4 Color  ) {
+
+    vec2 fragCoord = fragment(floor(std::getRenderTargetSize() * std::getVertexTexCoord()));
+
+    //time = getTime() / timeMultiplier;
+    //vec4 webcamColor = texture(iChannel0, fragCoord / getRenderTargetSize().xy);
+    vec4 webcamColor = myTex.sample( fragCoord / getRenderTargetSize().xy );
+    float luminance = dot(webcamColor.rgb, vec3(0.299, 0.587, 0.114));
+    vec2 p = fragCoord / getRenderTargetSize().xy;
+    vec3 col = getColor(p, luminance);
+    Color = vec4(col, 1.0);
+}

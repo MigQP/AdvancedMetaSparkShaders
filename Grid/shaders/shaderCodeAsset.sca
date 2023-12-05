@@ -1,0 +1,32 @@
+using namespace std;
+
+#define rand(co) fract(sin((co)*(91.3458))*47453.5453)
+vec2 shuffle(vec2 x,float div,float i,float seed){
+   	vec2 original = x;
+    i += seed;
+    vec2 from = vec2(floor(rand((i)*.42)*div),floor(rand((i)*.22)*div));
+    vec2 to = vec2(floor(rand(i*.57)*div),floor(rand((i)*.82)*div));
+    if(original==from){x=to;}
+    if(original==to){x=from;}
+    return x;
+}
+vec2 cell(vec2 x,float div,float seed) {
+    vec2 a = floor(x*div);
+    for(float i=0.;i<70.;i++){
+        a = shuffle(a,div,i,seed);
+    }
+    return a;
+}
+
+void main(in std::Texture2d myTex,out vec4 Color  ) {
+
+  vec2 fragCoord = fragment(floor(std::getRenderTargetSize() * std::getVertexTexCoord()));
+
+	vec2 uv = fragCoord.xy / getRenderTargetSize().xy;
+    float time = getTime();
+    float div = 6.;
+    vec2 a;
+    a = cell(uv,div,floor(time));
+    a = (a+fract(uv.xy*div))/div;
+	Color = vec4(myTex.sample(a).rgb,1.);
+}

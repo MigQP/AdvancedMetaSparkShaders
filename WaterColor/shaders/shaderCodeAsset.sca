@@ -1,0 +1,15 @@
+
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+
+using namespace std;
+
+
+void main(in std::Texture2d myTex, out vec4 Color  )
+{
+  vec2 fragCoord = fragment(floor(std::getRenderTargetSize() * std::getVertexTexCoord()));
+	vec2 uv = fragCoord.xy / getRenderTargetSize().xy;
+	Color = myTex.sample(uv);
+}

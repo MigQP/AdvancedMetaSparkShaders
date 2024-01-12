@@ -1,0 +1,191 @@
+{
+  "id": "5373fa2dd85312f44927b8f1901a40700541",
+  "revision": "15410fa2dd85312f44927b8f1901a40700541",
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 175
+  },
+  "creatorIdentifier": "com.facebook.arstudio.skylight",
+  "creatorPlatform": "windows",
+  "creatorFileVersion": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 175
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:10255-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPatch": "shader_code_patch_model:8054-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:5956-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "toPort": "20"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:11282-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPatch": "shader_code_patch_model:8008-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPort": "16777216",
+        "toPatch": "shader_code_patch_model:8054-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "toPort": "256"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:8024-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPatch": "shader_code_patch_model:8008-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPort": "16777216",
+        "toPatch": "template_patch_model:8020-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "toPort": "20"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:8050-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPatch": "template_patch_model:8034-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPort": "1000",
+        "toPatch": "template_patch_model:8048-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "toPort": "1"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:8052-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPatch": "template_patch_model:8048-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPort": "100",
+        "toPatch": "shader_code_patch_model:8008-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "toPort": "256"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:8146-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPatch": "template_patch_model:8020-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPort": "1000",
+        "toPatch": "template_patch_model:8034-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "toPort": "20"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:8148-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPatch": "producer_patch_model:5830-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:8008-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "toPort": "512"
+      }
+    ],
+    "graphs": [
+      {
+        "modelName": "patch_graph",
+        "identifier": "patch_graph:5465-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "subpatches": [
+          "consumer_patch_model:5956-fa2dd853-12f4-4927-b8f1-901a40700541",
+          "producer_patch_model:5830-fa2dd853-12f4-4927-b8f1-901a40700541",
+          "shader_code_patch_model:8008-fa2dd853-12f4-4927-b8f1-901a40700541",
+          "shader_code_patch_model:8054-fa2dd853-12f4-4927-b8f1-901a40700541",
+          "template_patch_model:8020-fa2dd853-12f4-4927-b8f1-901a40700541",
+          "template_patch_model:8034-fa2dd853-12f4-4927-b8f1-901a40700541",
+          "template_patch_model:8048-fa2dd853-12f4-4927-b8f1-901a40700541"
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "modelName": "consumer_patch_model",
+        "name": "Device",
+        "identifier": "consumer_patch_model:5956-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "object": "device:5449-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "objectProperty": "render_pass_final_output",
+        "position": [
+          1316,
+          68
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "cameraTexture0",
+        "identifier": "producer_patch_model:5830-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "object": "cameraTexture:5828-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "position": [
+          44,
+          92
+        ]
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "Watercolor - main",
+        "identifier": "shader_code_patch_model:8008-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "object": "shader_code_asset_model:5692-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "position": [
+          428,
+          212
+        ],
+        "shaderInterface": "shader_interface_model:5694-fa2dd853-12f4-4927-b8f1-901a40700541"
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "shaderCodeAsset - main",
+        "identifier": "shader_code_patch_model:8054-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "object": "shader_code_asset_model:6118-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "position": [
+          642.4856567382812,
+          52.11427688598633
+        ],
+        "shaderInterface": "shader_interface_model:6120-fa2dd853-12f4-4927-b8f1-901a40700541"
+      },
+      {
+        "modelName": "template_patch_model",
+        "name": "Shader Render Pass",
+        "identifier": "template_patch_model:8020-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "deleteUsAlong": [
+          "render_pass_texture_model:8022-fa2dd853-12f4-4927-b8f1-901a40700541"
+        ],
+        "position": [
+          715.3428273891923,
+          314.9714166748282
+        ],
+        "templateId": "builtin.renderPass.processor",
+        "values": [
+          {
+            "port": "80",
+            "value": {
+              "t": "string",
+              "v": "render_pass_texture_model:8022-fa2dd853-12f4-4927-b8f1-901a40700541"
+            }
+          }
+        ]
+      },
+      {
+        "modelName": "template_patch_model",
+        "name": "Delay Frame",
+        "identifier": "template_patch_model:8034-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "deleteUsAlong": [
+          "render_pass_texture_model:8036-fa2dd853-12f4-4927-b8f1-901a40700541"
+        ],
+        "position": [
+          1073.914249854186,
+          360.6857016106044
+        ],
+        "templateId": "builtin.renderPass.store",
+        "values": [
+          {
+            "port": "80",
+            "value": {
+              "t": "string",
+              "v": "render_pass_texture_model:8036-fa2dd853-12f4-4927-b8f1-901a40700541"
+            }
+          }
+        ]
+      },
+      {
+        "modelName": "template_patch_model",
+        "name": "Delay Frame",
+        "identifier": "template_patch_model:8048-fa2dd853-12f4-4927-b8f1-901a40700541",
+        "position": [
+          212,
+          116
+        ],
+        "templateId": "builtin.broadcast.receiver",
+        "variantInfo": "texture"
+      }
+    ]
+  }
+}

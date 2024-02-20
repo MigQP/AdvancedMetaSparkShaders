@@ -1,0 +1,67 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+const float PI = 3.1415927;
+
+//#define HT_SIZE 5.
+
+const float ANIM_SPEED = 0.7;
+
+const float BLUR = .15;
+
+const float LOW = .12;
+const float HIGH = .85;
+
+const float SPREAD = .085;
+
+//https://www.shadertoy.com/view/4djSRW
+float hash11(float p){
+    p = fract(p * .1031);
+    p *= p + 33.33;
+    p *= p + p;
+    return fract(p);
+}
+
+vec3 hash32(vec2 p)
+{
+	vec3 p3 = fract(vec3(p.xyx) * vec3(.1031, .1030, .0973));
+    p3 += dot(p3, p3.yxz+33.33);
+    return fract((p3.xxy+p3.yzz)*p3.zyx);
+}
+
+vec2 rotVec(vec2 v, float f){
+    float c=cos(f), s=sin(f);
+    return v*mat2(c, -s, s, c);
+}
+
+using namespace std;
+
+void main(in std::Texture2d myTex,out vec4 Color  )
+{
+
+    vec2 fragCoord = fragment(floor(std::getRenderTargetSize() * std::getVertexTexCoord()));
+    //randomly offsetted to avoid moire.
+    float baseSize = 5.0; // Base value for HT_SIZE
+    float HT_SIZE = baseSize * getRenderTargetSize().y / 400.0; // Scale based on screen height
+
+    float randSeed=1.;
+    float angleR=PI*hash11(randSeed);
+    float angleG=angleR+PI*mix(.25, .33, hash11(randSeed+10.));
+    float angleB=angleG+PI*mix(.25, .33, hash11(randSeed+20.));
+    
+    //rotate, shrink, repeat, normal. radial gradients
+    vec2 coord=getRenderTargetSize().xy*.5-fragCoord;
+    vec3 dist=vec3(
+        length(.5-fract(rotVec(coord, angleR)/HT_SIZE)),
+        length(.5-fract(rotVec(coord, angleG)/HT_SIZE)),
+        length(.5-fract(rotVec(coord, angleB)/HT_SIZE))
+    );
+    
+    vec2 uv=fragCoord/getRenderTargetSize().xy;
+    vec3 col=myTex.sample(uv).rgb*.7;   
+    
+    Color.rgb=smoothstep(BLUR, -BLUR, dist-col);
+    Color=mix(vec4(LOW), vec4(HIGH), Color);
+    Color.rgb+=(hash32(fragCoord)-.5)*SPREAD;
+}

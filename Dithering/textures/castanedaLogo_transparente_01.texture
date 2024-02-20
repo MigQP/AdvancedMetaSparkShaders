@@ -1,0 +1,36 @@
+{
+  "modelName": "texture",
+  "name": "castanedaLogo_transparente_01",
+  "identifier": "texture:3676-b642a1c0-1675-491b-9541-8fa7df68d94a",
+  "alphaPremultiplicationMode": "should_premultiply",
+  "assetDataHash": "28209ea9972c142cbe18504fae55355f",
+  "assetLocator": "textures/castanedaLogo_transparente_01.png",
+  "colorEncoding": "linear",
+  "compressionQuality": "high",
+  "coordMapping": "none",
+  "excludeDuringExport": false,
+  "excludeFromPackage": false,
+  "filter": "bilinear",
+  "hasOfflineMipmaps": false,
+  "height": 576,
+  "importIssues": {},
+  "isExternalAsset": true,
+  "smartTextureTargetSizeLimit": "largest",
+  "targetSize": "largest",
+  "uWrapMode": "clamp",
+  "vWrapMode": "clamp",
+  "width": 1024,
+  "children": [
+    {
+      "modelName": "data_texture_metadata_model",
+      "name": "data_texture_metadata_model0",
+      "assetDataHash": "28209ea9972c142cbe18504fae55355f",
+      "colorCount": 7742,
+      "detectedAlphaChannel": "eight_bit_full_range",
+      "detectedOriginalFormat": "png",
+      "entropyOfDistribution": 0.955798828854501,
+      "pixelsHigh": 576,
+      "pixelsWide": 1024
+    }
+  ]
+}

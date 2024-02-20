@@ -1,0 +1,132 @@
+{
+  "id": "3211b642a1c01675491b95418fa7df68d94a",
+  "revision": "107869b642a1c01675491b95418fa7df68d94a",
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 175
+  },
+  "creatorIdentifier": "com.facebook.arstudio.skylight",
+  "creatorPlatform": "windows",
+  "creatorFileVersion": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 175
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:109241-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "fromPatch": "producer_patch_model:54236-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "fromPort": "0",
+        "toPatch": "template_patch_model:109239-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "toPort": "1"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:109409-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "fromPatch": "template_patch_model:109239-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "fromPort": "100",
+        "toPatch": "shader_code_patch_model:54230-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "toPort": "512"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:54232-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "fromPatch": "producer_patch_model:3836-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:54230-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "toPort": "256"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:56333-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "fromPatch": "shader_code_patch_model:54230-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:56331-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "toPort": "1"
+      }
+    ],
+    "graphs": [
+      {
+        "modelName": "patch_graph",
+        "identifier": "patch_graph:3303-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "subpatches": [
+          "consumer_patch_model:56331-b642a1c0-1675-491b-9541-8fa7df68d94a",
+          "producer_patch_model:3836-b642a1c0-1675-491b-9541-8fa7df68d94a",
+          "producer_patch_model:54236-b642a1c0-1675-491b-9541-8fa7df68d94a",
+          "shader_code_patch_model:54230-b642a1c0-1675-491b-9541-8fa7df68d94a",
+          "template_patch_model:109239-b642a1c0-1675-491b-9541-8fa7df68d94a"
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "modelName": "consumer_patch_model",
+        "name": "mtl_camera",
+        "identifier": "consumer_patch_model:56331-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "object": "defaultMaterial:56175-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "objectProperty": "diffuse_texture_slot",
+        "position": [
+          764,
+          140
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "cameraTexture0",
+        "identifier": "producer_patch_model:3836-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "object": "cameraTexture:3830-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "position": [
+          116,
+          68
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "12565",
+        "identifier": "producer_patch_model:54236-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "object": "texture:3532-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "position": [
+          20,
+          212
+        ]
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "shaderCodeAsset - main",
+        "identifier": "shader_code_patch_model:54230-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "object": "shader_code_asset_model:3534-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "position": [
+          380,
+          164
+        ],
+        "shaderInterface": "shader_interface_model:3536-b642a1c0-1675-491b-9541-8fa7df68d94a"
+      },
+      {
+        "modelName": "template_patch_model",
+        "name": "Multiply",
+        "identifier": "template_patch_model:109239-b642a1c0-1675-491b-9541-8fa7df68d94a",
+        "position": [
+          212,
+          212
+        ],
+        "templateId": "builtin.variadicMathMul",
+        "values": [
+          {
+            "port": "2",
+            "value": {
+              "t": "double",
+              "v": 1
+            }
+          }
+        ],
+        "variadicInfo": {
+          "input": 2
+        },
+        "variantInfo": "float"
+      }
+    ]
+  }
+}

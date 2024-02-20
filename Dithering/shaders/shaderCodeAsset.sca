@@ -1,0 +1,98 @@
+using namespace std;
+// activate dither
+#define DITHER
+
+// How many colors do you want on the final image ? (per channel)
+const float COLORDEPTH = 1.0;
+
+#define GREYSCALEINPUT
+#define GREYSCALEOUTPUT
+
+// Scale of the pixels
+#define RESOLUTIONFACTOR 2.0
+
+// use a true triangle function (different kind of noise) 
+#define TRUETRIANGLE
+
+// using a triangular function based noise give smoother noise repartition
+// (this is not really a triangle function, it produces a bit more noise)
+// i added the true triangle function as an option (read the pdf to understand)
+float remap_noise_tri_erp( const float v )
+{
+    #if ( defined TRUETRIANGLE )
+    return abs(fract(v+0.5)-0.5)+.25;
+	#endif
+    float r2 = 0.5 * v;
+    float f1 = sqrt( r2 );
+    float f2 = 1.0 - sqrt( r2 - 0.25 );    
+    return (v < 0.5) ? f1 : f2;
+}
+
+
+vec3 ValveScreenSpaceDither(vec2 vScreenPos, float colorDepth)
+{
+        // creating the dither pattern
+        vec3 vDither = vec3( dot( vec2( 171.0, 231.0 ), vScreenPos.xy ) );
+        // shifting r,g & b channels different angles to break the repetition and smooth even more
+        vDither.rgb = fract( vDither.rgb / vec3( 103.0, 71.0, 97.0 ) );
+
+        //note: apply triangular pdf
+        vDither.r = remap_noise_tri_erp(vDither.r)*2.0-1.0;
+        vDither.g = remap_noise_tri_erp(vDither.g)*2.0-1.0;
+        vDither.b = remap_noise_tri_erp(vDither.b)*2.0-1.0;
+
+        return vDither.rgb / colorDepth;
+    }
+
+    vec3 TextureDither(vec2 vScreenPos, float colorDepth, std::Texture2d cam, std::Texture2d noise, vec2 uv)
+    {
+        // creating the dither pattern
+        float x = mod(vScreenPos.x/noise.sample(uv).x, getRenderTargetSize().x);
+        float y = mod(vScreenPos.y/noise.sample(uv).y, getRenderTargetSize().y);
+        //vec3 vDither = texture(iChannel1, vec2(x,y)/RESOLUTIONFACTOR).rrr;
+        vec3 vDither = noise.sample(vec2(x,y)/RESOLUTIONFACTOR).rrr;
+
+        //vec3 finalColor = texture(iChannel0, fragCoord.xy/iResolution.xy).rgb// shifting r,g & b channels different angles to break the repetition and smooth even more
+        //vDither.rgb = fract( vDither.rgb / vec3(103.0, 71.0, 97.0) );
+
+        //note: apply triangular pdf
+        //vDither.r = remap_noise_tri_erp(vDither.r)*2.0-0.5;
+        //vDither.g = remap_noise_tri_erp(vDither.g)*2.0-0.5;
+        //vDither.b = remap_noise_tri_erp(vDither.b)*2.0-0.5;
+
+        return (0.5-vDither);
+    }
+
+
+
+void main(in std::Texture2d myTex, in std::Texture2d myTex1  ,out vec4 Color  ) 
+{
+        vec2 fragCoord = fragment(floor(std::getRenderTargetSize() * std::getVertexTexCoord()));
+
+        
+
+        vec2 uv = fragCoord.xy / getRenderTargetSize().xy;
+
+        float colorDepth = COLORDEPTH;
+        // downscaling the resolution so you can appreciate the effect better
+        fragCoord = floor(fragCoord /RESOLUTIONFACTOR)*RESOLUTIONFACTOR;
+        // getting pixel color from buffer
+        vec3 finalColor = myTex.sample(uv).rgb;
+        #if defined ( GREYSCALEINPUT )
+        finalColor = finalColor.rrr;
+        #endif
+        #if defined ( DITHER )
+        // applying dithering (left for Valve dither, right for texture dither)
+        if (fragCoord.x < 0.8 *getRenderTargetSize().x)
+            finalColor += ValveScreenSpaceDither(fragCoord.xy, colorDepth );
+        else 
+            finalColor += TextureDither(fragCoord.xy, colorDepth, myTex, myTex1, uv);
+        #endif
+        #if defined ( GREYSCALEOUTPUT )
+        finalColor = 0.333*vec3(finalColor.r+finalColor.g+finalColor.b);
+        #endif
+        // limitating color depth and outputing final color
+        //Color = vec4(finalColor,1.0);
+        //Color = vec4(floor(finalColor * colorDepth+0.5) / colorDepth, 1.0);
+        Color = vec4(floor(finalColor * colorDepth + 0.5) / colorDepth, 1.0);
+}

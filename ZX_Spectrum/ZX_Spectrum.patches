@@ -1,0 +1,167 @@
+{
+  "id": "2f7e48290e260484980ec7ae757b07284",
+  "revision": "5903f7e48290e260484980ec7ae757b07284",
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 175
+  },
+  "creatorIdentifier": "com.facebook.arstudio.skylight",
+  "creatorPlatform": "windows",
+  "creatorFileVersion": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 175
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:3013-f7e48290-e260-4849-80ec-7ae757b07284",
+        "fromPatch": "shader_code_patch_model:737-f7e48290-e260-4849-80ec-7ae757b07284",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:3011-f7e48290-e260-4849-80ec-7ae757b07284",
+        "toPort": "1"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:3335-f7e48290-e260-4849-80ec-7ae757b07284",
+        "fromPatch": "shader_code_patch_model:737-f7e48290-e260-4849-80ec-7ae757b07284",
+        "fromPort": "16777216",
+        "toPatch": "consumer_patch_model:3187-f7e48290-e260-4849-80ec-7ae757b07284",
+        "toPort": "20"
+      },
+      {
+        "modelName": "patch_connection_model",
+        "identifier": "patch_connection_model:739-f7e48290-e260-4849-80ec-7ae757b07284",
+        "fromPatch": "producer_patch_model:337-f7e48290-e260-4849-80ec-7ae757b07284",
+        "fromPort": "0",
+        "toPatch": "shader_code_patch_model:737-f7e48290-e260-4849-80ec-7ae757b07284",
+        "toPort": "256"
+      }
+    ],
+    "graphs": [
+      {
+        "modelName": "patch_graph",
+        "identifier": "patch_graph:94-f7e48290-e260-4849-80ec-7ae757b07284",
+        "subpatches": [
+          "consumer_patch_model:3011-f7e48290-e260-4849-80ec-7ae757b07284",
+          "consumer_patch_model:3187-f7e48290-e260-4849-80ec-7ae757b07284",
+          "producer_patch_model:337-f7e48290-e260-4849-80ec-7ae757b07284",
+          "shader_code_patch_model:737-f7e48290-e260-4849-80ec-7ae757b07284",
+          "template_patch_model:1619-f7e48290-e260-4849-80ec-7ae757b07284",
+          "template_patch_model:1655-f7e48290-e260-4849-80ec-7ae757b07284",
+          "template_patch_model:2525-f7e48290-e260-4849-80ec-7ae757b07284"
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "modelName": "consumer_patch_model",
+        "name": "material0",
+        "identifier": "consumer_patch_model:3011-f7e48290-e260-4849-80ec-7ae757b07284",
+        "object": "defaultMaterial:2867-f7e48290-e260-4849-80ec-7ae757b07284",
+        "objectProperty": "diffuse_texture_slot",
+        "position": [
+          644,
+          212
+        ]
+      },
+      {
+        "modelName": "consumer_patch_model",
+        "name": "Device",
+        "identifier": "consumer_patch_model:3187-f7e48290-e260-4849-80ec-7ae757b07284",
+        "object": "device:78-f7e48290-e260-4849-80ec-7ae757b07284",
+        "objectProperty": "render_pass_final_output",
+        "position": [
+          500,
+          92
+        ]
+      },
+      {
+        "modelName": "producer_patch_model",
+        "name": "cameraTexture0",
+        "identifier": "producer_patch_model:337-f7e48290-e260-4849-80ec-7ae757b07284",
+        "object": "cameraTexture:321-f7e48290-e260-4849-80ec-7ae757b07284",
+        "position": [
+          44,
+          20
+        ]
+      },
+      {
+        "modelName": "shader_code_patch_model",
+        "name": "ZX Spectrum - main",
+        "identifier": "shader_code_patch_model:737-f7e48290-e260-4849-80ec-7ae757b07284",
+        "object": "shader_code_asset_model:587-f7e48290-e260-4849-80ec-7ae757b07284",
+        "position": [
+          260,
+          140
+        ],
+        "shaderInterface": "shader_interface_model:589-f7e48290-e260-4849-80ec-7ae757b07284",
+        "values": [
+          {
+            "port": "512",
+            "value": {
+              "t": "vec2",
+              "v": [
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "modelName": "template_patch_model",
+        "name": "Vertex Attribute",
+        "identifier": "template_patch_model:1619-f7e48290-e260-4849-80ec-7ae757b07284",
+        "position": [
+          -52,
+          188
+        ],
+        "templateId": "builtin.shaderAttribute",
+        "values": [
+          {
+            "port": "1",
+            "value": {
+              "t": "int",
+              "v": 3
+            }
+          }
+        ]
+      },
+      {
+        "modelName": "template_patch_model",
+        "name": "Vertex Transform",
+        "identifier": "template_patch_model:1655-f7e48290-e260-4849-80ec-7ae757b07284",
+        "position": [
+          308,
+          -4
+        ],
+        "templateId": "builtin.shaderUniform"
+      },
+      {
+        "modelName": "template_patch_model",
+        "name": "2D Transform Pack",
+        "identifier": "template_patch_model:2525-f7e48290-e260-4849-80ec-7ae757b07284",
+        "position": [
+          356,
+          284
+        ],
+        "templateId": "builtin.2DTransformPack",
+        "values": [
+          {
+            "port": "1",
+            "value": {
+              "t": "vec2",
+              "v": [
+                1,
+                2
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

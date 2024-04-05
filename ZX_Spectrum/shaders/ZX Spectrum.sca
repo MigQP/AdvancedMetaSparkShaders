@@ -1,0 +1,55 @@
+//==============================================================================
+// Welcome to shader authoring in Meta Spark Studio!
+//==============================================================================
+
+using namespace std;
+
+void main(in std::Texture2d myTex, in vec2 p,out vec4 Color  ) {
+
+  vec2 uv = fragment(std::getVertexTexCoord());
+
+  uv.y = 1.0 - uv.y;
+
+  uv.x = 1.0 - uv.x;
+
+  p = uv;
+
+
+	float t = getTime();
+    uv /= getRenderTargetSize();
+    
+    p.x = 1.-p.x;
+    p.y=1.-p.y;
+    
+    float r = 0.0;
+    float pass = 0.0;
+   
+    for (float i = 0.; i < 10.; ++i) {
+        //r += smoothstep(0.3, 0.4, texture(iChannel0, vec2(p.x - pass*0.01, p.y)).r);
+        r += smoothstep(0.35, 0.4, myTex.sample(vec2(p.x - pass*0.01, p.y)).r);
+        pass += 1.0;
+    }
+    r /= pass;
+    
+    float g = 0.0;
+    pass = 0.0;
+    
+    for (float j = 0.; j < 10.; ++j) {
+        //g += smoothstep(0.3, 0.4, texture(iChannel0, vec2(p.x - pass*0.01, p.y + pass*0.01)).g);
+        g += smoothstep(0.3, 0.4, myTex.sample(vec2(p.x - pass*0.01, p.y + pass*0.01)).g);
+        pass += 1.0;
+    }
+    g /= pass;
+    
+    float b = 0.0;
+    pass = 0.0;
+    
+    for (float k = 0.; k < 10.; ++k) {
+        //b += smoothstep(0.3, 0.4, texture(iChannel0, vec2(p.x, p.y + pass*0.01)).b);
+        b += smoothstep(0.3, 0.4, myTex.sample(vec2(p.x, p.y + pass*0.01)).b);
+        pass += 1.0;
+    }
+    b /= pass; 
+    
+    Color.rgb = vec3(0.0) + vec3(r, g, b);
+} 
